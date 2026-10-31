@@ -9,7 +9,7 @@ find ./feeds/luci/collections/ -type f -name "Makefile" -exec sed -i "s/luci-the
 #修改immortalwrt.lan关联IP
 find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js" -exec sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" {} +
 #添加编译日期标识
-find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js" -exec sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $WRT_MARK-$WRT_DATE')/g" {} +
+find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js" -exec sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $ROUTER-$WRT_DATE')/g" {} +
 
 WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
 if [ -f "$WIFI_FILE" ]; then
